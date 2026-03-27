@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qwen-triton"
+version = "0.1.0"
+description = "Repo-owned Triton/PyTorch Qwen3 and Qwen3.5 text model bring-up"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "torch>=2.5",
+  "triton>=3.0",
+  "transformers>=4.57.0",
+  "safetensors>=0.5.0",
+  "huggingface_hub>=0.30.0",
+  "datasets>=3.0.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
