@@ -200,6 +200,29 @@ Build the CUDA RoPE operator after the environment is active with:
 TORCH_CUDA_ARCH_LIST=12.0 python -m qwen_triton.scripts.build_rope_cuda_op --verbose
 ```
 
+### Docker
+
+Build the image from the repo root:
+
+```bash
+docker build -t qwen-triton -f docker/ubuntu24_04.dockerfile docker/
+```
+
+Run a container with GPU access and the repo mounted:
+
+```bash
+docker run -it --gpus all \
+    -v $(pwd):/workspace/Qwen-Triton \
+    qwen-triton bash
+```
+
+Inside the container, install the Python dependencies and you are ready to go:
+
+```bash
+cd /workspace
+pip install -r requirements.txt
+```
+
 ## Quick Start
 
 ### Smoke Test
